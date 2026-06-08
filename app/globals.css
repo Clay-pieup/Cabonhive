@@ -10,6 +10,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* CarbonHive Design Tokens */
+  --color-primary: #2e7d32;
+  --color-surface: #ffffff;
+  --color-on-surface: #1a1c18;
+  --color-on-surface-variant: #42493f;
+  --color-outline-variant: #c2c9bd;
+
+  --spacing-gutter: 1.5rem;
+  --max-width-max-width: 1280px;
+
+  --text-label-md: 0.75rem;
+  --font-label-md: var(--font-geist-sans);
 }
 
 @media (prefers-color-scheme: dark) {
