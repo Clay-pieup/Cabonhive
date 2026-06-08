@@ -29,6 +29,9 @@ const notoSansKR = Noto_Sans_KR({
 export const metadata: Metadata = {
   title: "카본하이브 | 미래 그래핀 소재의 리더",
   description: "초고속 광열탄화 공정으로 바이오매스를 고순도 그래핀으로 전환하는 카본하이브",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
