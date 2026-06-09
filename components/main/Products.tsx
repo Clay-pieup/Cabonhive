@@ -22,7 +22,7 @@ export default function Products() {
             <span className="font-label-md text-label-md text-primary uppercase tracking-[0.2em] mb-4 block">
               제품 소개
             </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-background mb-8">
+            <h2 className="font-display-lg text-display-lg text-on-background mb-8">
               카본하이브의 차별화된 제품
             </h2>
           </div>
