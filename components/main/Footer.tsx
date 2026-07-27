@@ -80,15 +80,10 @@ export default function Footer() {
         </ul>
       </nav>
 
-      <div className="max-w-max-width mx-auto px-gutter mt-8 pt-8 border-t border-outline-variant/30 flex justify-between items-center">
+      <div className="max-w-max-width mx-auto px-gutter mt-8 pt-8 border-t border-outline-variant/30">
         <p className="font-label-sm text-label-sm text-on-tertiary-container">
           {t.copyright}
         </p>
-        <div className="flex gap-4">
-          <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container transition-colors cursor-pointer">
-            <span className="material-symbols-outlined text-sm">public</span>
-          </div>
-        </div>
       </div>
     </footer>
   );

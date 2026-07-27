@@ -13,6 +13,7 @@ export default function TopNavigation() {
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang } = useLanguage();
   const [langOpen, setLangOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,10 +33,14 @@ export default function TopNavigation() {
     return () => document.removeEventListener("click", onClickOutside);
   }, []);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [lang]);
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || mobileMenuOpen
           ? "bg-white/60 backdrop-blur-md border-b border-outline-variant/30 shadow-sm"
           : "bg-transparent border-b border-transparent shadow-none"
       }`}
@@ -108,10 +113,53 @@ export default function TopNavigation() {
           </div>
         </div>
 
-        <button className="md:hidden text-on-surface">
-          <span className="material-symbols-outlined">menu</span>
+        <button
+          className="md:hidden text-on-surface"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+        >
+          <span className="material-symbols-outlined">
+            {mobileMenuOpen ? "close" : "menu"}
+          </span>
         </button>
       </nav>
+
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-outline-variant/30 px-gutter py-6">
+          <ul className="flex flex-col gap-1">
+            {NAV_LINKS[lang].map(({ label, href }) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-3 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="h-px bg-outline-variant/30 my-4" />
+
+          <div className="flex items-center gap-2">
+            {LANGUAGES.map(({ code, label }) => (
+              <button
+                key={code}
+                onClick={() => setLang(code)}
+                className={`px-4 py-2 rounded-lg text-label-md font-label-md transition-colors ${
+                  lang === code
+                    ? "bg-primary-container text-on-primary-fixed font-bold"
+                    : "border border-outline-variant text-on-surface-variant"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }
