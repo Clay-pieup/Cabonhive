@@ -17,10 +17,10 @@ const CONTENT = {
       },
     ],
     fields: [
-      { label: "회사명", type: "text", required: true },
-      { label: "담당자명", type: "text", required: true },
+      { label: "회사명", type: "text", required: true, placeholder: undefined },
+      { label: "담당자명", type: "text", required: true, placeholder: undefined },
       { label: "이메일", type: "email", required: true, placeholder: "example@email.com" },
-      { label: "연락처", type: "tel", required: false },
+      { label: "연락처", type: "tel", required: false, placeholder: undefined },
     ],
     productLabel: "관심 제품",
     productOptions: [
@@ -47,10 +47,10 @@ const CONTENT = {
       },
     ],
     fields: [
-      { label: "Company Name", type: "text", required: true },
-      { label: "Contact Name", type: "text", required: true },
+      { label: "Company Name", type: "text", required: true, placeholder: undefined },
+      { label: "Contact Name", type: "text", required: true, placeholder: undefined },
       { label: "Email", type: "email", required: true, placeholder: "example@email.com" },
-      { label: "Phone", type: "tel", required: false },
+      { label: "Phone", type: "tel", required: false, placeholder: undefined },
     ],
     productLabel: "Product of Interest",
     productOptions: [

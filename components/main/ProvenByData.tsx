@@ -23,8 +23,8 @@ const CONTENT = {
     col3Title: "글로벌 인증 현황",
     col3Body: "국제 표준 규격에 따른 엄격한 관리로 글로벌 시장이 요구하는 신뢰성을 충족합니다.",
     certifications: [
-      { name: "ISO 9001", desc: "Quality Management" },
-      { name: "ISO 14001", desc: "Environmental Mgmt" },
+      { name: "ISO 9001", desc: "Quality Management", span: false },
+      { name: "ISO 14001", desc: "Environmental Mgmt", span: false },
       { name: "REACH / RoHS", desc: "Safety Compliance", span: true },
     ],
     altPatent: "특허 및 분석 시각화",
@@ -48,8 +48,8 @@ const CONTENT = {
     col3Title: "Global Certifications",
     col3Body: "Rigorous management under international standards meets the reliability the global market demands.",
     certifications: [
-      { name: "ISO 9001", desc: "Quality Management" },
-      { name: "ISO 14001", desc: "Environmental Mgmt" },
+      { name: "ISO 9001", desc: "Quality Management", span: false },
+      { name: "ISO 14001", desc: "Environmental Mgmt", span: false },
       { name: "REACH / RoHS", desc: "Safety Compliance", span: true },
     ],
     altPatent: "Patent and analysis visualization",
