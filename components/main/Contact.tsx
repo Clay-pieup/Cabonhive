@@ -1,22 +1,74 @@
-const CONTACT_INFO = [
-  {
-    icon: "mail",
-    label: "이메일 문의",
-    value: "support@carbonhive.co.kr",
+"use client";
+
+import { useLanguage } from "@/components/LanguageContext";
+
+const CONTENT = {
+  KO: {
+    label: "문의하기",
+    heading: "샘플로 직접 확인해보세요",
+    body: "적용 목적과 요구 물성을 알려주시면, 적합한 소재를 제안해드립니다.",
+    contactInfo: [
+      { icon: "mail", label: "이메일 문의", value: "support@carbonhive.co.kr" },
+      { icon: "call", label: "전화 번호", value: "055.351.2892" },
+      {
+        icon: "location_on",
+        label: "본사 위치",
+        value: "(51395) 경남 밀양시 부북면 무안로 761,\n나노융합센터 연구동 404호",
+      },
+    ],
+    fields: [
+      { label: "회사명", type: "text", required: true },
+      { label: "담당자명", type: "text", required: true },
+      { label: "이메일", type: "email", required: true, placeholder: "example@email.com" },
+      { label: "연락처", type: "tel", required: false },
+    ],
+    productLabel: "관심 제품",
+    productOptions: [
+      { value: "", label: "제품 선택" },
+      { value: "powder", label: "파우더" },
+      { value: "paste_ink", label: "페이스트 · 잉크" },
+      { value: "composites", label: "복합소재" },
+      { value: "functional", label: "기능성 소재" },
+    ],
+    messageLabel: "문의 내용",
+    submit: "문의하기",
   },
-  {
-    icon: "call",
-    label: "전화 번호",
-    value: "055.351.2892",
+  EN: {
+    label: "Contact Us",
+    heading: "See It for Yourself with a Sample",
+    body: "Tell us your application and required properties, and we'll recommend the right material.",
+    contactInfo: [
+      { icon: "mail", label: "Email", value: "support@carbonhive.co.kr" },
+      { icon: "call", label: "Phone", value: "055.351.2892" },
+      {
+        icon: "location_on",
+        label: "Headquarters",
+        value: "761 Muan-ro, Bubuk-myeon, Miryang-si, Gyeongnam (51395),\nNano Convergence Center R&D Bldg. 404",
+      },
+    ],
+    fields: [
+      { label: "Company Name", type: "text", required: true },
+      { label: "Contact Name", type: "text", required: true },
+      { label: "Email", type: "email", required: true, placeholder: "example@email.com" },
+      { label: "Phone", type: "tel", required: false },
+    ],
+    productLabel: "Product of Interest",
+    productOptions: [
+      { value: "", label: "Select a product" },
+      { value: "powder", label: "Powder" },
+      { value: "paste_ink", label: "Paste · Ink" },
+      { value: "composites", label: "Composites" },
+      { value: "functional", label: "Functional Materials" },
+    ],
+    messageLabel: "Message",
+    submit: "Submit Inquiry",
   },
-  {
-    icon: "location_on",
-    label: "본사 위치",
-    value: "(51395) 경남 밀양시 부북면 무안로 761,\n나노융합센터 연구동 404호",
-  },
-];
+} as const;
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const t = CONTENT[lang];
+
   return (
     <section
       className="py-32 bg-surface-container-low border-t border-outline-variant/30"
@@ -28,18 +80,17 @@ export default function Contact() {
           <div className="lg:col-span-6 space-y-12">
             <div>
               <span className="font-label-md text-label-md text-primary uppercase tracking-[0.2em] mb-4 block">
-                문의하기
+                {t.label}
               </span>
               <h2 className="font-headline-lg text-headline-lg text-on-background mb-8">
-                샘플로 직접 확인해보세요
+                {t.heading}
               </h2>
               <p className="font-body-md text-body-md text-on-tertiary-container mb-12">
-                적용 목적과 요구 물성을 알려주시면, 적합한 소재를
-                제안해드립니다.
+                {t.body}
               </p>
 
               <div className="space-y-8">
-                {CONTACT_INFO.map(({ icon, label, value }) => (
+                {t.contactInfo.map(({ icon, label, value }) => (
                   <div key={label} className="flex items-start gap-6">
                     <div className="w-12 h-12 bg-white flex items-center justify-center border-subtle flex-shrink-0">
                       <span className="material-symbols-outlined text-[#ffb800]">
@@ -64,17 +115,7 @@ export default function Contact() {
           <div className="lg:col-span-4 bg-white p-8 rounded-lg shadow-sm border border-outline-variant/30">
             <form className="space-y-6">
               <div className="space-y-4">
-                {[
-                  { label: "회사명", type: "text", required: true },
-                  { label: "담당자명", type: "text", required: true },
-                  {
-                    label: "이메일",
-                    type: "email",
-                    required: true,
-                    placeholder: "example@email.com",
-                  },
-                  { label: "연락처", type: "tel", required: false },
-                ].map(({ label, type, required, placeholder }) => (
+                {t.fields.map(({ label, type, required, placeholder }) => (
                   <div key={label}>
                     <label className="block font-label-md text-label-md text-on-surface mb-2">
                       {label}{" "}
@@ -93,20 +134,20 @@ export default function Contact() {
 
                 <div>
                   <label className="block font-label-md text-label-md text-on-surface mb-2">
-                    관심 제품
+                    {t.productLabel}
                   </label>
                   <select className="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-white">
-                    <option value="">제품 선택</option>
-                    <option value="powder">파우더</option>
-                    <option value="paste_ink">페이스트 · 잉크</option>
-                    <option value="composites">복합소재</option>
-                    <option value="functional">기능성 소재</option>
+                    {t.productOptions.map(({ value, label }) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
                 <div>
                   <label className="block font-label-md text-label-md text-on-surface mb-2">
-                    문의 내용
+                    {t.messageLabel}
                   </label>
                   <textarea
                     className="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
@@ -119,7 +160,7 @@ export default function Contact() {
                 className="w-full bg-primary-container text-on-primary-fixed py-4 rounded-lg font-bold hover:scale-[1.02] transition-transform shadow-lg shadow-primary-container/20"
                 type="submit"
               >
-                문의하기
+                {t.submit}
               </button>
             </form>
           </div>

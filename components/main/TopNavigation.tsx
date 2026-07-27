@@ -1,12 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/components/LanguageContext";
+import { NAV_LINKS } from "@/components/navLinks";
+
+const LANGUAGES = [
+  { code: "KO", label: "한국어" },
+  { code: "EN", label: "English" },
+] as const;
 
 export default function TopNavigation() {
-  const [lang, setLang] = useState<"KO" | "EN">("KO");
+  const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang } = useLanguage();
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("click", onClickOutside);
+    return () => document.removeEventListener("click", onClickOutside);
+  }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 bg-white/60 shadow-sm">
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/60 backdrop-blur-md border-b border-outline-variant/30 shadow-sm"
+          : "bg-transparent border-b border-transparent shadow-none"
+      }`}
+    >
       <nav className="flex justify-between items-center px-gutter max-w-max-width mx-auto h-24">
         <a href="#" aria-label="홈으로 이동" className="flex items-center gap-3">
           <img
@@ -17,47 +50,61 @@ export default function TopNavigation() {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          <a
-            className="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
-            href="#technology"
-          >
-            기술
-          </a>
-          <a
-            className="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
-            href="#products"
-          >
-            제품
-          </a>
-          <a
-            className="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
-            href="#contact"
-          >
-            문의
-          </a>
-          <div className="h-4 w-[1px] bg-outline-variant" />
-          <div className="flex items-center gap-1 text-xs font-label-md">
-            <button
-              onClick={() => setLang("KO")}
-              className={`px-1.5 py-0.5 transition-colors ${
-                lang === "KO"
-                  ? "text-primary font-bold"
-                  : "text-on-surface-variant hover:text-primary"
-              }`}
+          {NAV_LINKS[lang].map(({ label, href }) => (
+            <a
+              key={href}
+              className="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
+              href={href}
             >
-              KO
-            </button>
-            <span className="text-outline-variant">/</span>
+              {label}
+            </a>
+          ))}
+
+          <div className="h-4 w-px bg-outline-variant" />
+
+          <div className="relative" ref={langRef}>
             <button
-              onClick={() => setLang("EN")}
-              className={`px-1.5 py-0.5 transition-colors ${
-                lang === "EN"
-                  ? "text-primary font-bold"
-                  : "text-on-surface-variant hover:text-primary"
-              }`}
+              onClick={() => setLangOpen((open) => !open)}
+              className="flex items-center gap-1 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
+              aria-haspopup="listbox"
+              aria-expanded={langOpen}
             >
-              EN
+              Language
+              <span
+                className={`material-symbols-outlined text-base transition-transform duration-200 ${
+                  langOpen ? "rotate-180" : ""
+                }`}
+              >
+                expand_more
+              </span>
             </button>
+
+            {langOpen && (
+              <ul
+                role="listbox"
+                className="absolute right-0 mt-2 w-32 bg-white border border-outline-variant/30 rounded-lg shadow-lg overflow-hidden"
+              >
+                {LANGUAGES.map(({ code, label }) => (
+                  <li key={code}>
+                    <button
+                      role="option"
+                      aria-selected={lang === code}
+                      onClick={() => {
+                        setLang(code);
+                        setLangOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2.5 text-label-md font-label-md transition-colors ${
+                        lang === code
+                          ? "text-primary font-bold bg-surface-container-low"
+                          : "text-on-surface-variant hover:bg-surface-container-low"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 
