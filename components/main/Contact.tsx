@@ -31,12 +31,11 @@ export default function Contact() {
                 문의하기
               </span>
               <h2 className="font-headline-lg text-headline-lg text-on-background mb-8">
-                카본하이브와 함께하세요
+                샘플로 직접 확인해보세요
               </h2>
               <p className="font-body-md text-body-md text-on-tertiary-container mb-12">
-                첨단 소재가 필요한 프로젝트가 있으신가요? 저희 엔지니어링 팀이
-                기술 컨설팅, 맞춤형 합성 및 대량 공급을 도와드릴 준비가 되어
-                있습니다.
+                적용 목적과 요구 물성을 알려주시면, 적합한 소재를
+                제안해드립니다.
               </p>
 
               <div className="space-y-8">
@@ -66,7 +65,8 @@ export default function Contact() {
             <form className="space-y-6">
               <div className="space-y-4">
                 {[
-                  { label: "이름", type: "text", required: true },
+                  { label: "회사명", type: "text", required: true },
+                  { label: "담당자명", type: "text", required: true },
                   {
                     label: "이메일",
                     type: "email",
@@ -74,7 +74,6 @@ export default function Contact() {
                     placeholder: "example@email.com",
                   },
                   { label: "연락처", type: "tel", required: false },
-                  { label: "회사명", type: "text", required: true },
                 ].map(({ label, type, required, placeholder }) => (
                   <div key={label}>
                     <label className="block font-label-md text-label-md text-on-surface mb-2">
@@ -94,11 +93,23 @@ export default function Contact() {
 
                 <div>
                   <label className="block font-label-md text-label-md text-on-surface mb-2">
-                    문의내용 <span className="text-[#ffb800]">*</span>
+                    관심 제품
+                  </label>
+                  <select className="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-white">
+                    <option value="">제품 선택</option>
+                    <option value="powder">파우더</option>
+                    <option value="paste_ink">페이스트 · 잉크</option>
+                    <option value="composites">복합소재</option>
+                    <option value="functional">기능성 소재</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-label-md text-label-md text-on-surface mb-2">
+                    문의 내용
                   </label>
                   <textarea
                     className="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    required
                     rows={4}
                   />
                 </div>

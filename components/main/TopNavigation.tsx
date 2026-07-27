@@ -7,30 +7,30 @@ export default function TopNavigation() {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 bg-white/60 shadow-sm">
-      <nav className="flex justify-between items-center px-gutter max-w-max-width mx-auto h-28">
+      <nav className="flex justify-between items-center px-gutter max-w-max-width mx-auto h-24">
         <a href="#" aria-label="홈으로 이동" className="flex items-center gap-3">
           <img
             alt="카본하이브 로고"
-            className="w-auto h-28 object-contain py-2"
+            className="w-auto h-24 object-contain py-2"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMEf19P8qVeoVTBX4DIPLB0JMHM7PFozl8Ij0EZqTZrKEQmkWuDXNRJrWfoEIU6UHz5H6Men_1atvQTUkMXj_blYj52DIYPEGAuvzPAs1CWbhFFOkcS9jgn4zwGk7W7-7ilfs9mvhR9RkurL5BScNwjYF2DQ6646kMIB4cR1duuoEzAOlonWyYEaOCQm3NzAalsRKkG5i1Wo5M752JY8N7fM_VQjfaE2BUx0LyicnAyfUdwJoYggSRR_h4RC-XiNAvYxdATrLPSN3R"
           />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
           <a
-            className="text-on-surface-variant font-medium hover:text-primary transition-colors uppercase tracking-wider text-xs"
+            className="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
             href="#technology"
           >
             기술
           </a>
           <a
-            className="text-on-surface-variant font-medium hover:text-primary transition-colors uppercase tracking-wider text-xs"
+            className="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
             href="#products"
           >
             제품
           </a>
           <a
-            className="text-on-surface-variant font-medium hover:text-primary transition-colors uppercase tracking-wider text-xs"
+            className="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider"
             href="#contact"
           >
             문의

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Inter, JetBrains_Mono, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+import TallyPopupCloseButton from "@/components/TallyPopupCloseButton";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -47,9 +48,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
+        <script async src="https://tally.so/widgets/embed.js"></script>
       </head>
       <body className="bg-surface text-on-surface font-body-md overflow-x-hidden min-h-full flex flex-col">
         {children}
+        <TallyPopupCloseButton />
       </body>
     </html>
   );

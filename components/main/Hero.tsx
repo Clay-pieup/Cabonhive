@@ -3,15 +3,15 @@ const BG_IMAGE =
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-white">
-      {/* Ken Burns 배경 — 오른쪽 정렬로 그래핀 구조가 우측에 위치 */}
+    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-white">
+      {/* Ken Burns 배경 */}
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute inset-0 animate-kenburns"
           style={{
             backgroundImage: `url("${BG_IMAGE}")`,
-            backgroundSize: "auto 100%",
-            backgroundPosition: "right center",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
           }}
         />
@@ -25,18 +25,17 @@ export default function Hero() {
             style={{ animationDelay: "0.15s" }}
           >
             빛으로 완성하는 <br />
-            바이오매스 그래핀, 카본하이브
+            차세대 그래핀 제조 기술
           </h1>
 
           <p
             className="animate-fade-up font-body-lg text-body-lg text-on-tertiary-container mb-10"
-            style={{ animationDelay: "0.35s" }}
+            style={{ animationDelay: "0.3s" }}
           >
-            카본하이브는 초고속 광열탄화 공정을 통해 버려지는 바이오매스를
-            고순도 그래핀으로 전환합니다.
+            초고속 광열 공정이 만드는 고순도 그래핀 솔루션
             <br />
-            환경적 한계와 높은 비용 구조를 극복하고, 산업 현장에 즉시 적용
-            가능한 소재를 공급합니다.
+            순도 99.9%, 결함 제어된 그래핀을 산업별 요구 물성에 맞춰
+            설계합니다.
           </p>
 
           <div
@@ -44,10 +43,18 @@ export default function Hero() {
             style={{ animationDelay: "0.55s" }}
           >
             <button className="bg-primary-container text-on-primary-fixed px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:scale-105 transition-transform shadow-lg shadow-primary-container/20">
-              회사 소개
+              기술 상담
             </button>
-            <button className="border border-outline px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:bg-surface-container transition-colors">
-              기술 문의
+            <button
+              data-tally-open="Npv7XG"
+              data-tally-emoji-text="👋"
+              data-tally-emoji-animation="wave"
+              className="group border border-outline px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:bg-surface-container transition-all shadow-none hover:shadow-md flex items-center gap-2"
+            >
+              브로셔 다운로드
+              <span className="material-symbols-outlined text-lg transition-transform duration-300 group-hover:translate-x-1">
+                arrow_forward
+              </span>
             </button>
           </div>
         </div>
