@@ -8,9 +8,9 @@ const CONTENT = {
     companyLine: "카본하이브 | 그래핀 소재 전문 기업",
     contactLine: "Tel. +82-55-351-2892 | support@carbonhive.co.kr",
     addressLine: "경남 밀양시 부북면 무안로 761 나노융합센터 연구동 404호",
-    ctaPrimary: "기술 상담",
+    ctaPrimary: "기술상담",
     ctaSecondary: "브로셔 다운로드",
-    copyright: "© 2026 카본하이브. 모든 권리 보유.",
+    copyright: "Copyright ©Carbonhive Co., Ltd. All Rights Reserved.",
   },
   EN: {
     companyLine: "Carbonhive | Graphene Materials Specialist",
@@ -19,7 +19,7 @@ const CONTENT = {
       "761 Muan-ro, Bubuk-myeon, Miryang-si, Gyeongnam, Korea (51395), Nano Convergence Center R&D Bldg. 404",
     ctaPrimary: "Talk to an Expert",
     ctaSecondary: "Download Brochure",
-    copyright: "© 2026 Carbonhive. All rights reserved.",
+    copyright: "Copyright ©Carbonhive Co., Ltd. All Rights Reserved.",
   },
 } as const;
 
@@ -45,9 +45,12 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
-          <button className="bg-primary-container text-on-primary-fixed px-6 py-3 rounded-lg font-label-md text-label-md font-bold hover:scale-105 transition-transform shadow-lg shadow-primary-container/20">
+          <a
+            href="#contact"
+            className="flex items-center justify-center text-center bg-primary-container text-on-primary-fixed px-6 py-3 rounded-lg font-label-md text-label-md font-bold hover:scale-105 transition-transform shadow-lg shadow-primary-container/20"
+          >
             {t.ctaPrimary}
-          </button>
+          </a>
           <button
             data-tally-open="Npv7XG"
             data-tally-emoji-text="👋"

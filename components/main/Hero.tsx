@@ -20,7 +20,7 @@ const CONTENT = {
         순도 99.9%, 결함 제어된 그래핀을 산업별 요구 물성에 맞춰 설계합니다.
       </>
     ),
-    ctaPrimary: "기술 상담",
+    ctaPrimary: "기술상담",
     ctaSecondary: "브로셔 다운로드",
   },
   EN: {
@@ -83,9 +83,12 @@ export default function Hero() {
             className="animate-fade-up flex flex-wrap gap-4"
             style={{ animationDelay: "0.55s" }}
           >
-            <button className="bg-primary-container text-on-primary-fixed px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:scale-105 transition-transform shadow-lg shadow-primary-container/20">
+            <a
+              href="#contact"
+              className="flex items-center justify-center text-center bg-primary-container text-on-primary-fixed px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:scale-105 transition-transform shadow-lg shadow-primary-container/20"
+            >
               {t.ctaPrimary}
-            </button>
+            </a>
             <button
               data-tally-open="Npv7XG"
               data-tally-emoji-text="👋"
