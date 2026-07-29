@@ -2,8 +2,9 @@
 
 import { useLanguage } from "@/components/LanguageContext";
 
-const PLACEHOLDER_IMAGE =
-  "https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg";
+const PATENT_IMAGE = "/images/patent.png";
+const PLATFORM_IMAGE = "/images/manufacturing-platform.png";
+const ANALYSIS_IMAGE = "/images/precision-data.png";
 
 const CONTENT = {
   KO: {
@@ -87,7 +88,7 @@ export default function ProvenByData() {
               <img
                 alt={t.altPatent}
                 className="w-full h-full object-cover"
-                src={PLACEHOLDER_IMAGE}
+                src={PATENT_IMAGE}
               />
             </div>
             <h3 className="font-headline-md text-headline-md mb-4 text-on-background">
@@ -117,7 +118,7 @@ export default function ProvenByData() {
               <img
                 alt={t.altPlatform}
                 className="w-full h-full object-cover"
-                src={PLACEHOLDER_IMAGE}
+                src={PLATFORM_IMAGE}
               />
             </div>
             <h3 className="font-headline-md text-headline-md mb-4 text-on-background">
@@ -134,7 +135,7 @@ export default function ProvenByData() {
               <img
                 alt={t.altAnalysis}
                 className="w-full h-full object-cover"
-                src={PLACEHOLDER_IMAGE}
+                src={ANALYSIS_IMAGE}
               />
             </div>
             <h3 className="font-headline-md text-headline-md mb-4 text-on-background">

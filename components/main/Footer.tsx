@@ -1,11 +1,10 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageContext";
-import { NAV_LINKS } from "@/components/navLinks";
 
 const CONTENT = {
   KO: {
-    companyLine: "카본하이브 | 그래핀 소재 전문 기업",
+    companyLine: "카본하이브",
     contactLine: "Tel. 055-351-2892 | support@carbonhive.co.kr",
     addressLine: "경남 밀양시 부북면 무안로 761 나노융합센터 연구동 404호",
     ctaPrimary: "기술상담",
@@ -13,7 +12,7 @@ const CONTENT = {
     copyright: "Copyright ©Carbonhive Co., Ltd. All Rights Reserved.",
   },
   EN: {
-    companyLine: "Carbonhive | Graphene Materials Specialist",
+    companyLine: "Carbonhive",
     contactLine: "Tel. +82-55-351-2892 | support@carbonhive.co.kr",
     addressLine:
       "761 Muan-ro, Bubuk-myeon, Miryang-si, Gyeongnam, Korea (51395), Nano Convergence Center R&D Bldg. 404",
@@ -34,7 +33,7 @@ export default function Footer() {
           <span className="block font-headline-sm text-headline-sm font-black text-on-surface">
             {t.companyLine}
           </span>
-          <div className="space-y-0">
+          <div className="space-y-[5px]">
             <p className="font-body-sm text-body-sm text-on-tertiary-container">
               {t.contactLine}
             </p>
@@ -65,22 +64,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <nav className="max-w-max-width mx-auto px-gutter mt-12 pt-8 border-t border-outline-variant/30">
-        <ul className="flex flex-wrap gap-x-8 gap-y-3">
-          {NAV_LINKS[lang].map(({ label, href }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className="font-label-md text-label-md text-on-tertiary-container hover:text-primary transition-colors"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div className="max-w-max-width mx-auto px-gutter mt-8 pt-8 border-t border-outline-variant/30">
+      <div className="max-w-max-width mx-auto px-gutter mt-12 pt-8 border-t border-outline-variant/30">
         <p className="font-label-sm text-label-sm text-on-tertiary-container">
           {t.copyright}
         </p>
