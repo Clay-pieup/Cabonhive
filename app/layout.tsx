@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hanken_Grotesk, Inter, JetBrains_Mono, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import TallyPopupCloseButton from "@/components/TallyPopupCloseButton";
-import TallyRedirectOnSubmit from "@/components/TallyRedirectOnSubmit";
+import TallyBrochureCompletion from "@/components/TallyBrochureCompletion";
 import { LanguageProvider } from "@/components/LanguageContext";
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -56,7 +56,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
           <TallyPopupCloseButton />
-          <TallyRedirectOnSubmit />
+          <TallyBrochureCompletion />
         </LanguageProvider>
       </body>
     </html>
