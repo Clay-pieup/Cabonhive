@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageContext";
+import ContactForm from "@/components/main/ContactForm";
 
 const CONTENT = {
   KO: {
@@ -16,22 +17,6 @@ const CONTENT = {
         value: "(51395) 경남 밀양시 부북면 무안로 761,\n나노융합센터 연구동 404호",
       },
     ],
-    fields: [
-      { label: "회사명", type: "text", required: true, placeholder: undefined },
-      { label: "담당자명", type: "text", required: true, placeholder: undefined },
-      { label: "이메일", type: "email", required: true, placeholder: "example@email.com" },
-      { label: "연락처", type: "tel", required: false, placeholder: undefined },
-    ],
-    productLabel: "관심 제품",
-    productOptions: [
-      { value: "", label: "제품 선택" },
-      { value: "powder", label: "파우더" },
-      { value: "paste_ink", label: "페이스트 · 잉크" },
-      { value: "composites", label: "복합소재" },
-      { value: "functional", label: "기능성 소재" },
-    ],
-    messageLabel: "문의 내용",
-    submit: "문의하기",
   },
   EN: {
     label: "Contact Us",
@@ -46,22 +31,6 @@ const CONTENT = {
         value: "761 Muan-ro, Bubuk-myeon, Miryang-si, Gyeongnam (51395),\nNano Convergence Center R&D Bldg. 404",
       },
     ],
-    fields: [
-      { label: "Company Name", type: "text", required: true, placeholder: undefined },
-      { label: "Contact Name", type: "text", required: true, placeholder: undefined },
-      { label: "Email", type: "email", required: true, placeholder: "example@email.com" },
-      { label: "Phone", type: "tel", required: false, placeholder: undefined },
-    ],
-    productLabel: "Product of Interest",
-    productOptions: [
-      { value: "", label: "Select a product" },
-      { value: "powder", label: "Powder" },
-      { value: "paste_ink", label: "Paste · Ink" },
-      { value: "composites", label: "Composites" },
-      { value: "functional", label: "Functional Materials" },
-    ],
-    messageLabel: "Message",
-    submit: "Submit Inquiry",
   },
 } as const;
 
@@ -113,56 +82,7 @@ export default function Contact() {
 
           {/* Right column — contact form */}
           <div className="lg:col-span-4 bg-white p-8 rounded-lg shadow-sm border border-outline-variant/30">
-            <form className="space-y-6">
-              <div className="space-y-4">
-                {t.fields.map(({ label, type, required, placeholder }) => (
-                  <div key={label}>
-                    <label className="block font-label-md text-label-md text-on-surface mb-2">
-                      {label}{" "}
-                      {required && (
-                        <span className="text-[#ffb800]">*</span>
-                      )}
-                    </label>
-                    <input
-                      className="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                      placeholder={placeholder}
-                      required={required}
-                      type={type}
-                    />
-                  </div>
-                ))}
-
-                <div>
-                  <label className="block font-label-md text-label-md text-on-surface mb-2">
-                    {t.productLabel}
-                  </label>
-                  <select className="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-white">
-                    {t.productOptions.map(({ value, label }) => (
-                      <option key={value} value={value}>
-                        {label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block font-label-md text-label-md text-on-surface mb-2">
-                    {t.messageLabel}
-                  </label>
-                  <textarea
-                    className="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    rows={4}
-                  />
-                </div>
-              </div>
-
-              <button
-                className="w-full bg-primary-container text-on-primary-fixed py-4 rounded-lg font-bold hover:scale-[1.02] transition-transform shadow-lg shadow-primary-container/20"
-                type="submit"
-              >
-                {t.submit}
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

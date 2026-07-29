@@ -23,7 +23,9 @@ export default function BrochureDownloadPage() {
           브로셔를 보내드립니다
         </h1>
         <p className="font-body-lg text-body-lg text-on-tertiary-container mb-10">
-          다운로드가 자동으로 시작됩니다. 시작되지 않으면 아래 버튼을 눌러주세요.
+          다운로드가 자동으로 시작됩니다.
+          <br />
+          시작되지 않으면 아래 버튼을 눌러주세요.
         </p>
         <a
           href="/carbonhive-brochure.pdf"
