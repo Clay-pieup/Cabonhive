@@ -56,7 +56,7 @@ const CONTENT = {
     comparisonRows: [
       {
         label: "Reaction Time",
-        legacy: "Tens of minutes to hours",
+        legacy: "Hours to days",
         carbonhive: "Milliseconds (ms)",
       },
       {

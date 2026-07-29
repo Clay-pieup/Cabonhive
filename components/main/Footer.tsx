@@ -6,7 +6,7 @@ import { NAV_LINKS } from "@/components/navLinks";
 const CONTENT = {
   KO: {
     companyLine: "카본하이브 | 그래핀 소재 전문 기업",
-    contactLine: "Tel. +82-55-351-2892 | support@carbonhive.co.kr",
+    contactLine: "Tel. 055-351-2892 | support@carbonhive.co.kr",
     addressLine: "경남 밀양시 부북면 무안로 761 나노융합센터 연구동 404호",
     ctaPrimary: "기술상담",
     ctaSecondary: "브로셔 다운로드",

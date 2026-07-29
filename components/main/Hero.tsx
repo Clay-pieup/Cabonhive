@@ -34,8 +34,8 @@ const CONTENT = {
       <>
         High-purity graphene from ultra-fast photothermal processing.
         <br />
-        99.9% pure, defect-controlled graphene engineered to your industry's
-        exact specifications.
+        Defect-controlled graphene engineered to your industry's exact
+        specifications.
       </>
     ),
     ctaPrimary: "Talk to an Expert",
