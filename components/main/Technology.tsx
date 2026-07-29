@@ -11,7 +11,7 @@ const CONTENT = {
     comparisonRows: [
       {
         label: "반응 시간",
-        legacy: "수십 분 ~ 수 시간",
+        legacy: "수 시간 ~ 수 일",
         carbonhive: "밀리초(ms) 단위",
       },
       {
@@ -141,13 +141,13 @@ export default function Technology() {
                       : ""
                   }
                 >
-                  <td className="p-6 font-bold bg-surface-container-low/30">
+                  <td className="p-6 font-bold bg-surface-container-low/30 whitespace-nowrap">
                     {label}
                   </td>
-                  <td className="p-6 text-center text-on-tertiary-container">
+                  <td className="p-6 text-center text-on-tertiary-container whitespace-nowrap">
                     {legacy}
                   </td>
-                  <td className="p-6 text-center font-bold bg-primary-container/5">
+                  <td className="p-6 text-center font-bold bg-primary-container/5 whitespace-nowrap">
                     {carbonhive}
                   </td>
                 </tr>

@@ -20,16 +20,17 @@ const CONTENT = {
     col2Title: "자체 제조 플랫폼",
     col2Body:
       "카본하이브의 독자적인 대량 생산 자동화 라인은 실시간 품질 모니터링 시스템을 갖추고 있습니다. 밀리초 단위의 공정 데이터를 전수 수집하여 로트(Lot) 간 편차를 최소화한 최첨단 자동화 생산 체계를 구축했습니다.",
-    col3Title: "글로벌 인증 현황",
-    col3Body: "국제 표준 규격에 따른 엄격한 관리로 글로벌 시장이 요구하는 신뢰성을 충족합니다.",
-    certifications: [
-      { name: "ISO 9001", desc: "Quality Management", span: false },
-      { name: "ISO 14001", desc: "Environmental Mgmt", span: false },
-      { name: "REACH / RoHS", desc: "Safety Compliance", span: true },
+    col3Title: "정밀 분석 데이터",
+    col3Body: "모든 제품은 출하 전 다각도 정밀 분석을 통해 순도와 구조적 특성을 검증합니다.",
+    analyses: [
+      "TEM 투과전자현미경 구조 분석",
+      "Raman 분광 결함도 측정",
+      "XRD 결정구조 분석",
+      "SEM 표면 형상 관찰",
     ],
     altPatent: "특허 및 분석 시각화",
     altPlatform: "제조 플랫폼 이미지",
-    altCert: "인증 로고 이미지",
+    altAnalysis: "정밀 분석 데이터 이미지",
   },
   EN: {
     label: "Patents & Certifications",
@@ -45,16 +46,17 @@ const CONTENT = {
     col2Title: "In-House Manufacturing Platform",
     col2Body:
       "Carbonhive's proprietary mass-production automation line is equipped with a real-time quality monitoring system. It collects millisecond-scale process data across every unit, minimizing lot-to-lot variation through a state-of-the-art automated production system.",
-    col3Title: "Global Certifications",
-    col3Body: "Rigorous management under international standards meets the reliability the global market demands.",
-    certifications: [
-      { name: "ISO 9001", desc: "Quality Management", span: false },
-      { name: "ISO 14001", desc: "Environmental Mgmt", span: false },
-      { name: "REACH / RoHS", desc: "Safety Compliance", span: true },
+    col3Title: "Precision Analysis Data",
+    col3Body: "Every product is verified for purity and structural characteristics through multi-angle analysis before shipment.",
+    analyses: [
+      "TEM structural analysis",
+      "Raman spectroscopy defect measurement",
+      "XRD crystal structure analysis",
+      "SEM surface morphology imaging",
     ],
     altPatent: "Patent and analysis visualization",
     altPlatform: "Manufacturing platform image",
-    altCert: "Certification logo image",
+    altAnalysis: "Precision analysis data image",
   },
 } as const;
 
@@ -130,7 +132,7 @@ export default function ProvenByData() {
           <div className="flex flex-col">
             <div className="aspect-square mb-8 overflow-hidden bg-surface-container rounded-lg border border-outline-variant/30">
               <img
-                alt={t.altCert}
+                alt={t.altAnalysis}
                 className="w-full h-full object-cover"
                 src={PLACEHOLDER_IMAGE}
               />
@@ -141,23 +143,19 @@ export default function ProvenByData() {
             <p className="font-body-md text-body-md text-on-tertiary-container leading-relaxed mb-6">
               {t.col3Body}
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              {t.certifications.map(({ name, desc, span }) => (
-                <div
-                  key={name}
-                  className={`p-4 bg-surface-container-low border border-outline-variant/30 rounded text-center ${
-                    span ? "col-span-2" : ""
-                  }`}
+            <ul className="space-y-3">
+              {t.analyses.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-2 text-label-sm font-label-sm text-on-surface"
                 >
-                  <p className="font-label-md font-bold text-on-background">
-                    {name}
-                  </p>
-                  <p className="text-[10px] uppercase text-on-tertiary-container mt-1">
-                    {desc}
-                  </p>
-                </div>
+                  <span className="material-symbols-outlined text-primary text-lg">
+                    verified
+                  </span>
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>
