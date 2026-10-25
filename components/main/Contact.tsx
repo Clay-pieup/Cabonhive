@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/LanguageContext";
 import ContactForm from "@/components/main/ContactForm";
+import { COMPANY } from "@/lib/site";
 
 const CONTENT = {
   KO: {
@@ -9,8 +10,8 @@ const CONTENT = {
     heading: "샘플로 직접 확인해보세요",
     body: "적용 목적과 요구 물성을 알려주시면, 적합한 소재를 제안해드립니다.",
     contactInfo: [
-      { icon: "mail", label: "이메일 문의", value: "support@carbonhive.co.kr" },
-      { icon: "call", label: "전화 번호", value: "055.351.2892" },
+      { icon: "mail", label: "이메일 문의", value: COMPANY.email, href: `mailto:${COMPANY.email}` },
+      { icon: "call", label: "전화 번호", value: "055.351.2892", href: `tel:${COMPANY.telephoneDial}` },
       {
         icon: "location_on",
         label: "본사 위치",
@@ -23,8 +24,8 @@ const CONTENT = {
     heading: "See It for Yourself with a Sample",
     body: "Tell us your application and required properties, and we'll recommend the right material.",
     contactInfo: [
-      { icon: "mail", label: "Email", value: "support@carbonhive.co.kr" },
-      { icon: "call", label: "Phone", value: "055.351.2892" },
+      { icon: "mail", label: "Email", value: COMPANY.email, href: `mailto:${COMPANY.email}` },
+      { icon: "call", label: "Phone", value: COMPANY.telephone, href: `tel:${COMPANY.telephoneDial}` },
       {
         icon: "location_on",
         label: "Headquarters",
@@ -59,19 +60,25 @@ export default function Contact() {
               </p>
 
               <div className="space-y-8">
-                {t.contactInfo.map(({ icon, label, value }) => (
-                  <div key={label} className="flex items-start gap-6">
+                {t.contactInfo.map((item) => (
+                  <div key={item.label} className="flex items-start gap-6">
                     <div className="w-12 h-12 bg-white flex items-center justify-center border-subtle flex-shrink-0">
                       <span className="material-symbols-outlined text-[#ffb800]">
-                        {icon}
+                        {item.icon}
                       </span>
                     </div>
                     <div>
                       <h4 className="font-label-sm text-label-sm text-on-tertiary-container uppercase mb-1">
-                        {label}
+                        {item.label}
                       </h4>
                       <p className="font-body-md font-bold text-on-background whitespace-pre-line">
-                        {value}
+                        {"href" in item ? (
+                          <a href={item.href} className="hover:text-primary transition-colors">
+                            {item.value}
+                          </a>
+                        ) : (
+                          item.value
+                        )}
                       </p>
                     </div>
                   </div>
