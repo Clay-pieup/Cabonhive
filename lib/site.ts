@@ -24,8 +24,8 @@ export const COMPANY = {
     postalCode: "51395",
     addressCountry: "KR",
   },
-  // 로고 이미지 주소: 현재 로고가 외부 임시 주소에 있어 비워 둡니다.
-  logo: "",
+  // 로고 이미지 주소 (public/images/logo.png)
+  logo: `${SITE_URL}/images/logo.png`,
   // 설립연도 (예: "2020"). 확인 후 입력해 주세요.
   foundingDate: "",
   // LinkedIn 등 공식 SNS 주소. 확인 후 입력해 주세요.

@@ -3,7 +3,7 @@
 import { useLanguage } from "@/components/LanguageContext";
 
 const PRODUCT_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDXTH_CAW0uGp5kFqBMrrPbELthlLynreTpvmQd5gFCEvdsN7LUQhmUlFfzKiORL2xq3jB3sgxXNZS9xSR9YHL6pm3aX7nWcpNayDKGn5IAnsa9X9ruUuf_heRnl41DBW5YJLVgy8JVeV1ZIoBMFpF3JzRqwUdg5Zl0MD19_uX8ejrm3_yHBPVLmBa7xNZNbVijT3_HG2bhcs3psRdsaz065EpCl_M2f4QB5nojqa5OgsuVeOzF_hQEe-1DeCihSkYA84ese77gKjTi";
+  "/images/product-lineup.png";
 
 const CONTENT = {
   KO: {
