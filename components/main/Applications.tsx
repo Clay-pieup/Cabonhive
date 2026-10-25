@@ -4,15 +4,15 @@ import { useLanguage } from "@/components/LanguageContext";
 
 const IMAGES = {
   energy:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuAEvK7j0V7kwM8XzHnOsJNLI40ZtYve5ZPKRfSGMRbROqq_ZqL8VzSFSwIybfhFeBsNfkoPO3OQEClW2Q6YOtan3rVDmnqCvPi3Y5BB7GD9uvZ1ZZWnPSs0VZmqn6nWiazPN-aTDwiE1C-wwhpss0dBBbI7KZgPa4d4kjHeOt_5XbAGJBkFz4uGpCNViv675gsFyJ4T6E_2YogFSsB-_n1aIhSyBUn1IBFWog9n6PFHk3d6ovW5hFmHKlmgJpe2aLDQbJr6LrMws65Z",
+    "/images/application-energy-storage.jpg",
   printed:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBjIzE8nqvEmvVmdxr9CA5w7d-py9ZzU2YPBFkSQFaUVucVZa7l-pPNGNvkrmliiXbTjBi7wvingB-o4P57n0S439gJnh72j-KRvPmy2AJ1DFKxqQ6of4CCU92r-y-fGgymUldEjRkGMi0erXMOwQT8S8JKQXUDOQS8qIAatmsc1FusmwIgUlfEU4-xFKfrn6XgIvdNWUJhua0zsUGWa_oeAs7BftE-ddVwtSgTYX_LDzQQaxMv6eynvRFzDJvANFOn0WVhxL1w64UL",
+    "/images/application-printed-electronics.jpg",
   chemicals:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuAZNES0jz_7jI43RU9qSZajjwL4uCnyp6UcbkCfb_xlngVhsQJUzDVDmCeoKtiv0CE6hKYAJj4260jDNqlsmHXPCmbi5rusiOD1lAIiJFsB6fC2pgjCVL2e8Zjupn171NWe__6fSktOxYScK1EKFBUVbWmzFnx0icbbB8zWSnxghqQftKL9oxbZj1yyd3PGsi86mdIoCBk7QFYIxz9p46Ghe5_r3rWBhY8--dxFblE9ol_ge368h97R0v4Khw6DcKm-BuO_TAfGUo3x",
+    "/images/application-chemicals-coatings.jpg",
   composites:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDer_4MUfXFVF_Mmf_Ip2DzxzxKLC0Hy4RBHwXEYXbf4zDUQy9BVizchqOpg0yqJUYfuIh_OwZcRo1u93-hgdeIuZpOAwKTcmbEjELwsKTOJr1Bgn9gKc_Ie4k-0KwdPn1zxKTd1FPvCbqUeRYALFqZQhFYpBSTOF-gb-L9gI7JquD0n48TF67gAz6AOi2Z44MB9VIoh9B7_hq1gR-_9K6jwCasR24ru832PLuzk-8npLMJnsEDfwlOXpHOhCdB8QQbpNM5USyzPPqL",
+    "/images/application-composites.jpg",
   thermal:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuAImwue1JTXWIdfMnM1ep3dlCBymUXzr0cD4LQTGPWrcTzjo9pFAtEea7JNpoZZ1OAoLTFnKBOL_NRKaMzDH9e15EYUqYkIXWEPGpo1n_iTep_Yui9JDQPs6vSO6noNGJwjJpl8MxqtIstk_gn334w3i5RZtG9LpEEijfHycrftd5-MtVdqyyuikRhNlumnNkXm3pYofqij0nCgL3ncwXJqupidP9CiMgSjONCuk74fIeGXaobDbB6wRwPrVsMzmThE2AsM08ogfMEG",
+    "/images/application-thermal-electronics.jpg",
 } as const;
 
 const CONTENT = {

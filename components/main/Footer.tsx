@@ -1,11 +1,12 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageContext";
+import { COMPANY } from "@/lib/site";
 
 const CONTENT = {
   KO: {
     companyLine: "카본하이브",
-    contactLine: "Tel. 055-351-2892 | support@carbonhive.co.kr",
+    phone: "055-351-2892",
     addressLine: "경남 밀양시 부북면 무안로 761 나노융합센터 연구동 404호",
     ctaPrimary: "기술상담",
     ctaSecondary: "브로셔 다운로드",
@@ -13,7 +14,7 @@ const CONTENT = {
   },
   EN: {
     companyLine: "Carbonhive",
-    contactLine: "Tel. +82-55-351-2892 | support@carbonhive.co.kr",
+    phone: COMPANY.telephone,
     addressLine:
       "761 Muan-ro, Bubuk-myeon, Miryang-si, Gyeongnam, Korea (51395), Nano Convergence Center R&D Bldg. 404",
     ctaPrimary: "Talk to an Expert",
@@ -35,7 +36,14 @@ export default function Footer() {
           </span>
           <div className="space-y-[5px]">
             <p className="font-body-sm text-body-sm text-on-tertiary-container">
-              {t.contactLine}
+              Tel.{" "}
+              <a href={`tel:${COMPANY.telephoneDial}`} className="hover:text-primary transition-colors">
+                {t.phone}
+              </a>
+              {" | "}
+              <a href={`mailto:${COMPANY.email}`} className="hover:text-primary transition-colors">
+                {COMPANY.email}
+              </a>
             </p>
             <p className="font-body-sm text-body-sm text-on-tertiary-container">
               {t.addressLine}

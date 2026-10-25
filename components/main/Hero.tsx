@@ -3,7 +3,7 @@
 import { useLanguage } from "@/components/LanguageContext";
 
 const BG_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDGbXy1nWgcNgfXW8B19vwSDnHjzBnJZI5Fab1Ru5vYQHimJWVxwn36Uy_sIinxJ7YlQSDHjZdyO93RffunvG3My7mjQlpuCy-cIbUrMconAeLb1_amYaRo3ZLevKnbnjTl5qshpHHUFoXN9Aef58CRwcOHLoEvjj_TYn2eC5d7BsNIFacgTFuk21h9-6Nur9XPmowpDfewVeWVpP-YJCuib1ed0XWZ6ynB6Qb9dvgrTPc0YwkGZ5AI6pKILC6mnaPS4kE8g9KTfs36Y7c";
+  "/images/hero-background.jpg";
 
 const CONTENT = {
   KO: {

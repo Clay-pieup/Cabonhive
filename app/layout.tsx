@@ -4,6 +4,7 @@ import "./globals.css";
 import TallyPopupCloseButton from "@/components/TallyPopupCloseButton";
 import TallyBrochureCompletion from "@/components/TallyBrochureCompletion";
 import { LanguageProvider } from "@/components/LanguageContext";
+import { COMPANY, OG_IMAGE, SITE_URL } from "@/lib/site";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -29,10 +30,50 @@ const notoSansKR = Noto_Sans_KR({
   weight: ["400", "500", "700", "900"],
 });
 
+const SITE_TITLE = "카본하이브 | 미래 그래핀 소재의 리더";
+
 export const metadata: Metadata = {
-  title: "카본하이브 | 미래 그래핀 소재의 리더",
-  description: "초고속 광열탄화 공정으로 바이오매스를 고순도 그래핀으로 전환하는 카본하이브",
+  title: SITE_TITLE,
+  description: COMPANY.description,
+  openGraph: {
+    type: "website",
+    siteName: `${COMPANY.name} ${COMPANY.alternateName}`,
+    title: SITE_TITLE,
+    description: COMPANY.description,
+    locale: "ko_KR",
+    alternateLocale: ["en_US"],
+    // 이미지와 주소는 전체 주소(https://...)가 필요해서 SITE_URL이 있을 때만 넣습니다.
+    ...(SITE_URL ? { url: SITE_URL, images: [OG_IMAGE] } : {}),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: COMPANY.description,
+    ...(SITE_URL ? { images: [OG_IMAGE.url] } : {}),
+  },
+  ...(SITE_URL
+    ? { metadataBase: new URL(SITE_URL), alternates: { canonical: "/" } }
+    : {}),
 };
+
+// 검색엔진에 회사 정보를 알려주는 구조화 데이터 (빈 값은 자동으로 제외)
+const organizationJsonLd = Object.fromEntries(
+  Object.entries({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: COMPANY.name,
+    alternateName: COMPANY.alternateName,
+    legalName: COMPANY.legalName,
+    description: COMPANY.description,
+    url: SITE_URL,
+    logo: COMPANY.logo,
+    foundingDate: COMPANY.foundingDate,
+    email: COMPANY.email,
+    telephone: COMPANY.telephone,
+    address: { "@type": "PostalAddress", ...COMPANY.address },
+    sameAs: COMPANY.sameAs.length ? COMPANY.sameAs : "",
+  }).filter(([, value]) => value !== ""),
+);
 
 export default function RootLayout({
   children,
@@ -51,6 +92,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <script async src="https://tally.so/widgets/embed.js"></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
       </head>
       <body className="bg-surface text-on-surface font-body-md overflow-x-hidden min-h-full flex flex-col">
         <LanguageProvider>

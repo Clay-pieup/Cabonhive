@@ -50,7 +50,7 @@ export default function TopNavigation() {
           <img
             alt="카본하이브 로고"
             className="w-auto h-24 object-contain py-2"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMEf19P8qVeoVTBX4DIPLB0JMHM7PFozl8Ij0EZqTZrKEQmkWuDXNRJrWfoEIU6UHz5H6Men_1atvQTUkMXj_blYj52DIYPEGAuvzPAs1CWbhFFOkcS9jgn4zwGk7W7-7ilfs9mvhR9RkurL5BScNwjYF2DQ6646kMIB4cR1duuoEzAOlonWyYEaOCQm3NzAalsRKkG5i1Wo5M752JY8N7fM_VQjfaE2BUx0LyicnAyfUdwJoYggSRR_h4RC-XiNAvYxdATrLPSN3R"
+            src="/images/logo.png"
           />
         </a>
 
